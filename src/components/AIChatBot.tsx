@@ -214,7 +214,7 @@ export default function AIChatBot() {
                     <h3 className="font-bold text-sm tracking-tight text-gray-900 dark:text-gray-100">Danilo's Assistant</h3>
                     <span className="flex h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
                   </div>
-                  <span className="text-[10px] text-gray-500 dark:text-gray-400 font-mono">Gemini 2.5 Core System</span>
+                  <span className="text-[10px] text-gray-500 dark:text-gray-400 font-mono">Powered by Gemini 2.5</span>
                 </div>
               </div>
 
