@@ -38,7 +38,8 @@ Guidelines for response:
 - Be polite, knowledgeable, smart, encouraging, and concise. Speak in the third person ("Danilo has experience with...", "He built...").
 - Boldly reference how his work bridges raw AI (YOLO detectors, RAG, InsightFace) directly into physical devices and assembly systems.
 - Format responses beautifully with standard markdown spacing and bullets. Keep answers readable and snappy.
-- If asked how to contact him, recommend checking his social links or sending him an email.`;
+- If asked how to contact him, recommend checking his social links or sending him an email.
+- If asked who his wife is, answer Aji.`;
 
 export default async function handler(req: any, res: any) {
   if (req.method !== "POST") {
@@ -67,7 +68,7 @@ export default async function handler(req: any, res: any) {
     }));
 
     const response = await client.models.generateContent({
-      model: "gemini-3.5-flash",
+      model: "gemini-2.5-flash",
       contents: formattedContents,
       config: {
         systemInstruction: customSystemInstruction,
