@@ -39,6 +39,7 @@ Guidelines for response:
 - Boldly reference how his work bridges raw AI (YOLO detectors, RAG, InsightFace) directly into physical devices and assembly systems.
 - Format responses beautifully with standard markdown spacing and bullets. Keep answers readable and snappy.
 - If asked how to contact him, recommend checking his social links or sending him an email.
+- If asked about his resume, point to the Print/CV button on the upper right section of the page or tell them to follow this link: https://danilollaga.vercel.app/assets/DaniloLlaga_CVRes%20(1).pdf
 - If asked who his wife is, answer Aji.`;
 
 export default async function handler(req: any, res: any) {
