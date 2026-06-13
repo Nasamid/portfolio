@@ -186,7 +186,7 @@ export default function AIChatBot() {
             id="floating-chat-window"
           >
             {/* Header branding */}
-            <div className="p-4 bg-gradient-to-r from-zinc-50 to-zinc-100/50 dark:from-[#0d1527] dark:to-[#090f1d] border-b border-zinc-150 dark:border-gray-800 flex items-center justify-between">
+            <div className="p-4 bg-gradient-to-r from-zinc-50 to-zinc-100/50 dark:from-[#0d1527] dark:to-[#090f1d] border-b border-zinc-200 dark:border-gray-800 flex items-center justify-between">
               <div className="flex items-center gap-2.5">
                 <div className="w-9 h-9 rounded-xl bg-sky-500/10 dark:bg-sky-500/15 flex items-center justify-center border border-sky-500/20 text-sky-500">
                   <Bot className="w-5 h-5" />
@@ -232,7 +232,7 @@ export default function AIChatBot() {
                   <div className={`w-7 h-7 rounded-lg flex items-center justify-center text-xs shrink-0 ${
                     msg.role === "user" 
                       ? "bg-sky-500 text-white" 
-                      : "bg-zinc-150 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-zinc-200/50 dark:border-gray-750"
+                      : "bg-zinc-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-zinc-200/50 dark:border-gray-750"
                   }`}>
                     {msg.role === "user" ? (
                       <User className="w-3.5 h-3.5" />
@@ -245,7 +245,7 @@ export default function AIChatBot() {
                   <div className={`rounded-2xl px-3.5 py-2.5 text-xs relative ${
                     msg.role === "user"
                       ? "bg-sky-500 text-white rounded-tr-none"
-                      : "bg-white dark:bg-slate-800 text-gray-800 dark:text-zinc-100 border border-zinc-150 dark:border-slate-700/60 rounded-tl-none shadow-sm"
+                      : "bg-white dark:bg-slate-800 text-gray-800 dark:text-zinc-100 border border-zinc-200 dark:border-slate-700/60 rounded-tl-none shadow-sm"
                   }`}>
                     <div className="whitespace-pre-wrap">
                       {msg.role === "user" ? msg.text : renderFormattedText(msg.text)}
@@ -260,10 +260,10 @@ export default function AIChatBot() {
               {/* Loader Typing State */}
               {isLoading && (
                 <div className="flex gap-2.5 max-w-[85%] mr-auto items-center">
-                  <div className="w-7 h-7 rounded-lg bg-zinc-150 dark:bg-gray-800 text-gray-700 dark:text-gray-300 flex items-center justify-center border border-zinc-200/50 dark:border-gray-750">
+                  <div className="w-7 h-7 rounded-lg bg-zinc-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 flex items-center justify-center border border-zinc-200/50 dark:border-gray-750">
                     <Bot className="w-3.5 h-3.5" />
                   </div>
-                  <div className="bg-white dark:bg-slate-800 px-4 py-3 rounded-2xl rounded-tl-none border border-zinc-150 dark:border-slate-700/60 flex gap-1 items-center">
+                  <div className="bg-white dark:bg-slate-800 px-4 py-3 rounded-2xl rounded-tl-none border border-zinc-200 dark:border-slate-700/60 flex gap-1 items-center">
                     <span className="w-1.5 h-1.5 rounded-full bg-sky-500 animate-bounce [animation-delay:-0.3s]" />
                     <span className="w-1.5 h-1.5 rounded-full bg-sky-500 animate-bounce [animation-delay:-0.15s]" />
                     <span className="w-1.5 h-1.5 rounded-full bg-sky-500 animate-bounce" />
@@ -293,7 +293,7 @@ export default function AIChatBot() {
                   <button
                     key={idx}
                     onClick={() => handleSendMessage(prompt)}
-                    className="text-[10px] text-gray-600 dark:text-gray-300 hover:text-sky-600 dark:hover:text-sky-400 bg-white dark:bg-slate-800 hover:bg-sky-50/30 dark:hover:bg-sky-950/20 border border-zinc-150 dark:border-gray-800 rounded-lg py-1 px-2.5 transition-all text-left cursor-pointer truncate max-w-full active:scale-95"
+                    className="text-[10px] text-gray-600 dark:text-gray-300 hover:text-sky-600 dark:hover:text-sky-400 bg-white dark:bg-slate-800 hover:bg-sky-50/30 dark:hover:bg-sky-950/20 border border-zinc-200 dark:border-gray-800 rounded-lg py-1 px-2.5 transition-all text-left cursor-pointer truncate max-w-full active:scale-95"
                   >
                     {prompt}
                   </button>
@@ -307,7 +307,7 @@ export default function AIChatBot() {
                 e.preventDefault();
                 handleSendMessage(inputValue);
               }}
-              className="p-3.5 bg-white dark:bg-slate-900 border-t border-zinc-150 dark:border-gray-800 flex items-center gap-2"
+              className="p-3.5 bg-white dark:bg-slate-900 border-t border-zinc-200 dark:border-gray-800 flex items-center gap-2"
             >
               <input
                 ref={inputRef}
@@ -316,7 +316,7 @@ export default function AIChatBot() {
                 onChange={(e) => setInputValue(e.target.value)}
                 placeholder="Ask assistant about Danilo..."
                 disabled={isLoading}
-                className="flex-1 bg-zinc-50 dark:bg-slate-950/50 border border-zinc-200 dark:border-gray-800 rounded-xl px-3.5 py-2.5 text-xs text-gray-900 dark:text-gray-150 placeholder-gray-500 focus:outline-none focus:border-sky-500 dark:focus:border-sky-500 transition-colors disabled:opacity-55"
+                className="flex-1 bg-zinc-50 dark:bg-slate-950/50 border border-zinc-200 dark:border-gray-800 rounded-xl px-3.5 py-2.5 text-xs text-gray-900 dark:text-zinc-100 placeholder-gray-500 focus:outline-none focus:border-sky-500 dark:focus:border-sky-500 transition-colors disabled:opacity-55"
               />
               <button
                 type="submit"
