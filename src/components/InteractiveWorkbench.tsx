@@ -285,8 +285,6 @@ export default function InteractiveWorkbench({ selectedProject, onSelectProject 
         type: "banner",
         text: (
           <div className="space-y-2 border-b border-zinc-800 pb-4 mb-2 font-mono text-[11px] md:text-xs leading-normal">
-            <p className="text-zinc-500">// PRMSU SECURE EMBEDDED EDGE COMPUTING UNIT v4.1.24</p>
-            <p className="text-zinc-500">// CPU TEMPERATURE: 42°C // ARCH: ARM-A78AE // JETPACK RATING: CUDA 11+ PASS</p>
             <pre className="text-sky-504 leading-[1.1] text-sky-400 font-bold overflow-x-auto no-scrollbar max-w-full">
               {`   ___   _   _  _ ___ _     ___     ___ _    ___ 
   |   \\ /_\\ | \\| |_ _| |   / _ \\   / __| |  |_ _|
@@ -367,23 +365,23 @@ export default function InteractiveWorkbench({ selectedProject, onSelectProject 
           <div className="font-mono text-[11px] leading-normal text-zinc-350 space-y-2 py-1">
             <pre className="text-sky-400 font-mono leading-tight pl-2">
               {`.
-                └── Danilo Llaga Jr. (Skill Tree)
-                    ├── Artificial Intelligence & Computer Vision
-                    │   ├── PyTorch, TensorFlow, ONNX & Ultralytics YOLO
-                    │   ├── SQL and Pandas
-                    │   ├── OpenCV 
-                    │   ├── InsightFace Vector Clustering
-                    │   └── ChromaDB & LangChain RAG
-                    ├── Edge Hardware Integrations & Robotics
-                    │   ├── NVIDIA Jetson
-                    │   ├── Raspberry Pi
-                    │   └── ESP32 Microcontrollers
-                    └── Web Services & Data Systems
-                        ├── PHP
-                        ├── Node.js
-                        ├── FAST API
-                        ├── TypeScript, core React & Tailwind Styles
-                        └── Multi-table SQL schemas & Queries Optimization`}
+└── Danilo Llaga Jr. (Skill Tree)
+    ├── Artificial Intelligence & Computer Vision
+    │   ├── PyTorch, TensorFlow, ONNX & Ultralytics YOLO
+    │   ├── SQL and Pandas
+    │   ├── OpenCV 
+    │   ├── InsightFace Vector Clustering
+    │   └── ChromaDB & LangChain RAG
+    ├── Edge Hardware Integrations & Robotics
+    │   ├── NVIDIA Jetson
+    │   ├── Raspberry Pi
+    │   └── ESP32 Microcontrollers
+    └── Web Services & Data Systems
+        ├── PHP
+        ├── Node.js
+        ├── FAST API
+        ├── TypeScript, core React & Tailwind Styles
+        └── Multi-table SQL schemas & Queries Optimization`}
             </pre>
           </div>
         )
