@@ -1,12 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { 
-  MessageSquareCode, 
-  Send, 
-  X, 
-  RefreshCw, 
-  Bot, 
-  Sparkles, 
+import {
+  MessageSquareCode,
+  Send,
+  X,
+  RefreshCw,
+  Bot,
+  Sparkles,
   ArrowRight,
   User,
   AlertCircle
@@ -39,7 +39,7 @@ export default function AIChatBot() {
   const [inputValue, setInputValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [errorStatus, setErrorStatus] = useState<string | null>(null);
-  
+
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -90,7 +90,7 @@ export default function AIChatBot() {
       }
 
       const data = await res.json();
-      
+
       const assistantMsg: Message = {
         id: `ast-${Date.now()}`,
         role: "assistant",
@@ -123,7 +123,7 @@ export default function AIChatBot() {
   const renderFormattedText = (text: string) => {
     return text.split("\n").map((paragraph, index) => {
       if (!paragraph.trim()) return <div key={index} className="h-2" />;
-      
+
       // Check for bullet list item
       const isBullet = paragraph.trim().startsWith("-") || paragraph.trim().startsWith("*");
       const cleanLine = isBullet ? paragraph.trim().substring(1).trim() : paragraph;
@@ -196,10 +196,10 @@ export default function AIChatBot() {
                     <h3 className="font-bold text-sm tracking-tight text-gray-900 dark:text-gray-100">Danilo's Assistant</h3>
                     <span className="flex h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
                   </div>
-                  <span className="text-[10px] text-gray-500 dark:text-gray-400 font-mono">Gemini 3.5 Core System</span>
+                  <span className="text-[10px] text-gray-500 dark:text-gray-400 font-mono">Gemini 2.5 Core System</span>
                 </div>
               </div>
-              
+
               <div className="flex items-center gap-1">
                 <button
                   onClick={clearChat}
@@ -224,16 +224,14 @@ export default function AIChatBot() {
               {messages.map((msg) => (
                 <div
                   key={msg.id}
-                  className={`flex gap-2.5 max-w-[85%] ${
-                    msg.role === "user" ? "ml-auto flex-row-reverse" : "mr-auto"
-                  }`}
+                  className={`flex gap-2.5 max-w-[85%] ${msg.role === "user" ? "ml-auto flex-row-reverse" : "mr-auto"
+                    }`}
                 >
                   {/* Avatar Bubble */}
-                  <div className={`w-7 h-7 rounded-lg flex items-center justify-center text-xs shrink-0 ${
-                    msg.role === "user" 
-                      ? "bg-sky-500 text-white" 
+                  <div className={`w-7 h-7 rounded-lg flex items-center justify-center text-xs shrink-0 ${msg.role === "user"
+                      ? "bg-sky-500 text-white"
                       : "bg-zinc-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-zinc-200/50 dark:border-gray-750"
-                  }`}>
+                    }`}>
                     {msg.role === "user" ? (
                       <User className="w-3.5 h-3.5" />
                     ) : (
@@ -242,11 +240,10 @@ export default function AIChatBot() {
                   </div>
 
                   {/* Message Bubble */}
-                  <div className={`rounded-2xl px-3.5 py-2.5 text-xs relative ${
-                    msg.role === "user"
+                  <div className={`rounded-2xl px-3.5 py-2.5 text-xs relative ${msg.role === "user"
                       ? "bg-sky-500 text-white rounded-tr-none"
                       : "bg-white dark:bg-slate-800 text-gray-800 dark:text-zinc-100 border border-zinc-200 dark:border-slate-700/60 rounded-tl-none shadow-sm"
-                  }`}>
+                    }`}>
                     <div className="whitespace-pre-wrap">
                       {msg.role === "user" ? msg.text : renderFormattedText(msg.text)}
                     </div>
