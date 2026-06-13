@@ -20,8 +20,8 @@ interface Message {
 }
 
 const PRESET_PROMPTS = [
-  "Tell me about his YOLO AI project",
   "What is his current role at Wistron?",
+  "Tell me about his AI projects",
   "What hardware does he build with?",
   "Tell me about his Best Thesis project",
 ];
@@ -128,12 +128,30 @@ export default function AIChatBot() {
       const isBullet = paragraph.trim().startsWith("-") || paragraph.trim().startsWith("*");
       const cleanLine = isBullet ? paragraph.trim().substring(1).trim() : paragraph;
 
-      // Inline markdown tags: **bold**
-      const parts = cleanLine.split(/(\*\*.*?\*\*)/g);
+      // Inline markdown tags: **bold** and [text](url) links
+      const parts = cleanLine.split(/(\*\*.*?\*\*|\[.*?\]\(.*?\))/g);
       const renderedContent = parts.map((part, pIdx) => {
         if (part.startsWith("**") && part.endsWith("**")) {
           return <strong key={pIdx} className="font-extrabold text-gray-950 dark:text-white">{part.slice(2, -2)}</strong>;
         }
+
+        // Support [Text](URL) markdown links
+        const linkMatch = part.match(/^\[(.*?)\]\((.*?)\)$/);
+        if (linkMatch) {
+          const [, linkText, linkUrl] = linkMatch;
+          return (
+            <a
+              key={pIdx}
+              href={linkUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sky-500 hover:text-sky-600 dark:text-sky-400 dark:hover:text-sky-300 underline font-semibold transition-colors"
+            >
+              {linkText}
+            </a>
+          );
+        }
+
         return part;
       });
 
@@ -229,8 +247,8 @@ export default function AIChatBot() {
                 >
                   {/* Avatar Bubble */}
                   <div className={`w-7 h-7 rounded-lg flex items-center justify-center text-xs shrink-0 ${msg.role === "user"
-                      ? "bg-sky-500 text-white"
-                      : "bg-zinc-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-zinc-200/50 dark:border-gray-750"
+                    ? "bg-sky-500 text-white"
+                    : "bg-zinc-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-zinc-200/50 dark:border-gray-750"
                     }`}>
                     {msg.role === "user" ? (
                       <User className="w-3.5 h-3.5" />
@@ -241,8 +259,8 @@ export default function AIChatBot() {
 
                   {/* Message Bubble */}
                   <div className={`rounded-2xl px-3.5 py-2.5 text-xs relative ${msg.role === "user"
-                      ? "bg-sky-500 text-white rounded-tr-none"
-                      : "bg-white dark:bg-slate-800 text-gray-800 dark:text-zinc-100 border border-zinc-200 dark:border-slate-700/60 rounded-tl-none shadow-sm"
+                    ? "bg-sky-500 text-white rounded-tr-none"
+                    : "bg-white dark:bg-slate-800 text-gray-800 dark:text-zinc-100 border border-zinc-200 dark:border-slate-700/60 rounded-tl-none shadow-sm"
                     }`}>
                     <div className="whitespace-pre-wrap">
                       {msg.role === "user" ? msg.text : renderFormattedText(msg.text)}
