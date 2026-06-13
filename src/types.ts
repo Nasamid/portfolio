@@ -237,9 +237,9 @@ export const PROJECTS: Project[] = [
 
 export const CERTIFICATIONS: Certification[] = [
   { name: "Civil Service Certification - Professional Grade", provider: "Civil Service Commission (CSC)" },
+  { name: "Accenture Data and AI Training", provider: "Accenture PH", detail: "Data and AI curriculum, upskilling participants in data analytics, machine learning, and AI-driven solutions" },
   { name: "Safety Officer Level 2 Certification (SO2)", provider: "DOLE Registered", detail: "240 hours of rigorous physical and industrial hazard control training" },
-  { name: "DOST-SEI Scholars Leadership Camp Training", provider: "DOST Philippines", detail: "Leadership training under physical research scholar criteria, Clark Hilton Resort" },
-  { name: "43rd Annual National Convention delegate", provider: "Institute of Computer Engineers of the Philippines" }
+  { name: "DOST-SEI Scholars Leadership Camp Training", provider: "DOST Philippines", detail: "Leadership training under physical research scholar criteria, Clark Hilton Resort" }
 ];
 
 export const ACADEMIC_AWARDS: Award[] = [
