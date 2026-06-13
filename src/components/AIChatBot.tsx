@@ -285,12 +285,12 @@ export default function AIChatBot() {
                 <Sparkles className="w-3.5 h-3.5 text-sky-500" />
                 <span className="text-[10px] font-bold uppercase tracking-wider font-mono">Suggested Questions</span>
               </div>
-              <div className="flex flex-wrap gap-1.5 max-h-16 overflow-y-auto custom-scrollbar pr-1">
+              <div className="flex overflow-x-auto gap-2 pb-1.5 snap-x no-scrollbar">
                 {PRESET_PROMPTS.map((prompt, idx) => (
                   <button
                     key={idx}
                     onClick={() => handleSendMessage(prompt)}
-                    className="text-[10px] text-gray-600 dark:text-gray-300 hover:text-sky-600 dark:hover:text-sky-400 bg-white dark:bg-slate-800 hover:bg-sky-50/30 dark:hover:bg-sky-950/20 border border-zinc-200 dark:border-gray-800 rounded-lg py-1 px-2.5 transition-all text-left cursor-pointer truncate max-w-full active:scale-95"
+                    className="shrink-0 snap-start text-[10px] text-gray-600 dark:text-gray-300 hover:text-sky-600 dark:hover:text-sky-400 bg-white dark:bg-slate-800 hover:bg-sky-50/30 dark:hover:bg-sky-950/20 border border-zinc-200 dark:border-gray-800 rounded-lg py-1 px-2.5 transition-all text-left cursor-pointer active:scale-95"
                   >
                     {prompt}
                   </button>
