@@ -128,15 +128,15 @@ export default function AIChatBot() {
       const isBullet = paragraph.trim().startsWith("-") || paragraph.trim().startsWith("*");
       const cleanLine = isBullet ? paragraph.trim().substring(1).trim() : paragraph;
 
-      // Inline markdown tags: **bold** and [text](url) links
-      const parts = cleanLine.split(/(\*\*.*?\*\*|\[.*?\]\(.*?\))/g);
+      // Inline markdown tags: **bold** and [text](url) links (supporting nested parens in URLs)
+      const parts = cleanLine.split(/(\*\*.*?\*\*|\[.*?\]\((?:[^()]+|\([^()]*\))*\))/g);
       const renderedContent = parts.map((part, pIdx) => {
         if (part.startsWith("**") && part.endsWith("**")) {
           return <strong key={pIdx} className="font-extrabold text-gray-950 dark:text-white">{part.slice(2, -2)}</strong>;
         }
 
         // Support [Text](URL) markdown links
-        const linkMatch = part.match(/^\[(.*?)\]\((.*?)\)$/);
+        const linkMatch = part.match(/^\[(.*?)\]\(((?:[^()]+|\([^()]*\))*)\)$/);
         if (linkMatch) {
           const [, linkText, linkUrl] = linkMatch;
           return (
