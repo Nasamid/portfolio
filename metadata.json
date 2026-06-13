@@ -1,0 +1,6 @@
+{
+  "name": "Danilo Llaga Jr. Portfolio",
+  "description": "Interactive portfolio showcase for Danilo F. Llaga Jr., showcasing AI inspection, computer vision, edge computing, robotic automation, and hardware-software integration.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
