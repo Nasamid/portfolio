@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, ReactNode } from "react";
-import { 
-  Cpu, Bot, Scan, Activity, CheckCircle, AlertTriangle, 
+import {
+  Cpu, Bot, Scan, Activity, CheckCircle, AlertTriangle,
   RefreshCw, Send, Sliders, Database, Wrench, Shield, Info, ArrowUpRight,
   FileText, TrendingUp, Terminal, Mail, Link2, AlertCircle, X, ChevronRight, CornerDownLeft
 } from "lucide-react";
@@ -121,7 +121,7 @@ export default function InteractiveWorkbench({ selectedProject, onSelectProject 
   const [commandHistoryList, setCommandHistoryList] = useState<string[]>([]);
   const [historyPointer, setHistoryPointer] = useState<number>(-1);
   const terminalContainerRef = useRef<HTMLDivElement>(null);
-  
+
   // Simulation Active State (When terminal opens up a full visual interactive interface inside the terminal viewport)
   // Options: null (base CLI view) | "rag" | "aoi" | "dtr" | "leaf" | "sql" | "report"
   const [activeSimulation, setActiveSimulation] = useState<"rag" | "aoi" | "dtr" | "leaf" | "sql" | "report" | null>(null);
@@ -226,22 +226,22 @@ export default function InteractiveWorkbench({ selectedProject, onSelectProject 
   const [isReportCompiling, setIsReportCompiling] = useState<boolean>(false);
 
   // Chart values
-  const periodData = selectedPeriod === "7d" 
+  const periodData = selectedPeriod === "7d"
     ? [
-        { label: "Mon", triggers: 3, records: 12400 },
-        { label: "Tue", triggers: 4, records: 14500 },
-        { label: "Wed", triggers: 3, records: 11200 },
-        { label: "Thu", triggers: 5, records: 18900 },
-        { label: "Fri", triggers: 6, records: 22400 },
-        { label: "Sat", triggers: 2, records: 8900 },
-        { label: "Sun", triggers: 4, records: 15400 },
-      ]
+      { label: "Mon", triggers: 3, records: 12400 },
+      { label: "Tue", triggers: 4, records: 14500 },
+      { label: "Wed", triggers: 3, records: 11200 },
+      { label: "Thu", triggers: 5, records: 18900 },
+      { label: "Fri", triggers: 6, records: 22400 },
+      { label: "Sat", triggers: 2, records: 8900 },
+      { label: "Sun", triggers: 4, records: 15400 },
+    ]
     : [
-        { label: "Week 1", triggers: 24, records: 84000 },
-        { label: "Week 2", triggers: 28, records: 99100 },
-        { label: "Week 3", triggers: 31, records: 114500 },
-        { label: "Week 4", triggers: 19, records: 76000 },
-      ];
+      { label: "Week 1", triggers: 24, records: 84000 },
+      { label: "Week 2", triggers: 28, records: 99100 },
+      { label: "Week 3", triggers: 31, records: 114500 },
+      { label: "Week 4", triggers: 19, records: 76000 },
+    ];
 
   // Auto Scroll Terminal to bottom
   const scrollToBottom = () => {
@@ -265,7 +265,7 @@ export default function InteractiveWorkbench({ selectedProject, onSelectProject 
       const type = selectedProject.interactiveType;
       // Boot simulation automatically
       setActiveSimulation(type);
-      
+
       // Print notification in terminal stream
       setTerminalHistory(prev => [
         ...prev,
@@ -288,7 +288,7 @@ export default function InteractiveWorkbench({ selectedProject, onSelectProject 
             <p className="text-zinc-500">// PRMSU SECURE EMBEDDED EDGE COMPUTING UNIT v4.1.24</p>
             <p className="text-zinc-500">// CPU TEMPERATURE: 42°C // ARCH: ARM-A78AE // JETPACK RATING: CUDA 11+ PASS</p>
             <pre className="text-sky-504 leading-[1.1] text-sky-400 font-bold overflow-x-auto no-scrollbar max-w-full">
-{`   ___   _   _  _ ___ _     ___     ___ _    ___ 
+              {`   ___   _   _  _ ___ _     ___     ___ _    ___ 
   |   \\ /_\\ | \\| |_ _| |   / _ \\   / __| |  |_ _|
   | |) / _ \\| .\` || || |__| (_) | | (__| |__ | | 
   |___/_/ \\_\\_|\\_|___|____|\\___/   \\___|____|___|`}
@@ -317,12 +317,12 @@ export default function InteractiveWorkbench({ selectedProject, onSelectProject 
     if (!trimmed) return;
 
     const cmd = trimmed.toLowerCase();
-    
+
     // Log user input
     const userLogItem: TerminalHistoryItem = {
       id: Math.random().toString(),
       type: "input",
-      text: `danilo@embedded-edge-core:~$ ${trimmed}`
+      text: `danilo@ubuntu:~$ ${trimmed}`
     };
 
     let resultItem: TerminalHistoryItem | null = null;
@@ -365,25 +365,25 @@ export default function InteractiveWorkbench({ selectedProject, onSelectProject 
         type: "output",
         text: (
           <div className="font-mono text-[11px] leading-normal text-zinc-350 space-y-2 py-1">
-            <p className="text-zinc-400 font-bold">DANILO LLAGA - MODULAR RECONNAISSANCE DIRECTORY TREE:</p>
             <pre className="text-sky-400 font-mono leading-tight pl-2">
-{`.
-└── Danilo Llaga Jr. (Autonomous Stack)
-    ├── Artificial Intelligence & Computer Vision
-    │   ├── PyTorch Engine & Ultralytics YOLOv11 & YOLOv8
-    │   ├── OpenCV Real-Time Queues & CUDA Filters
-    │   ├── InsightFace Face Biometric Vector Clustering
-    │   └── ChromaDB & LangChain AI-RAG Helpers (Offline)
-    ├── Edge Hardware Integrations & Robotics
-    │   ├── NVIDIA Jetson Jetpack System architecture
-    │   ├── Raspberry Pi General Purpose Touchscreen Nodes
-    │   ├── Embedded Microcontrollers & C Programming
-    │   └── Sensor I/O & Relay Solenoid Actuators
-    └── Web Services & Data Systems
-        ├── Node.js / Express Backend Architecture
-        ├── Python Scrapers & Web Automation Blocks
-        ├── TypeScript, core React & Tailwind Styles
-        └── Multi-table SQL schemas & Queries Optimization`}
+              {`.
+                └── Danilo Llaga Jr. (Skill Tree)
+                    ├── Artificial Intelligence & Computer Vision
+                    │   ├── PyTorch, TensorFlow, ONNX & Ultralytics YOLO
+                    │   ├── SQL and Pandas
+                    │   ├── OpenCV 
+                    │   ├── InsightFace Vector Clustering
+                    │   └── ChromaDB & LangChain RAG
+                    ├── Edge Hardware Integrations & Robotics
+                    │   ├── NVIDIA Jetson
+                    │   ├── Raspberry Pi
+                    │   └── ESP32 Microcontrollers
+                    └── Web Services & Data Systems
+                        ├── PHP
+                        ├── Node.js
+                        ├── FAST API
+                        ├── TypeScript, core React & Tailwind Styles
+                        └── Multi-table SQL schemas & Queries Optimization`}
             </pre>
           </div>
         )
@@ -426,12 +426,12 @@ export default function InteractiveWorkbench({ selectedProject, onSelectProject 
         type: "output",
         text: (
           <div className="font-mono text-[11px] text-zinc-350 space-y-2 py-1">
-            <p className="text-zinc-400 font-bold">REGISTERED RECON ASSIGNMENTS ({PROJECTS.length}):</p>
+            <p className="text-zinc-400 font-bold">PROJECTS ({PROJECTS.length}):</p>
             <div className="space-y-2 pl-2">
               {PROJECTS.map((p, idx) => (
                 <div key={p.id} className="border-l border-zinc-800 pl-2">
                   <div className="flex items-center gap-1.5 text-sky-400">
-                    <span className="font-bold">[{idx + 1}] {p.title}</span> 
+                    <span className="font-bold">[{idx + 1}] {p.title}</span>
                     <span className="text-[9px] bg-zinc-800 text-zinc-400 px-1 py-0.2 rounded font-black">{p.status}</span>
                   </div>
                   <p className="text-zinc-400 text-[10px] leading-tight">{p.tagline}</p>
@@ -448,7 +448,7 @@ export default function InteractiveWorkbench({ selectedProject, onSelectProject 
       const nextIdx = (themes.indexOf(theme) + 1) % themes.length;
       const nextTheme = themes[nextIdx];
       setTheme(nextTheme);
-      
+
       resultItem = {
         id: Math.random().toString(),
         type: "system",
@@ -459,7 +459,7 @@ export default function InteractiveWorkbench({ selectedProject, onSelectProject 
     else if (["rag", "aoi", "dtr", "leaf", "sql", "report"].includes(cmd)) {
       const targetMode = cmd as "rag" | "aoi" | "dtr" | "leaf" | "sql" | "report";
       setActiveSimulation(targetMode);
-      
+
       // Update parent project selection as well to sync main dashboard panel
       const parentProj = PROJECTS.find(p => p.interactiveType === targetMode);
       if (parentProj) {
@@ -481,7 +481,7 @@ export default function InteractiveWorkbench({ selectedProject, onSelectProject 
     }
 
     setTerminalHistory(prev => [...prev, userLogItem, resultItem as TerminalHistoryItem]);
-    
+
     // Save to prompt history
     setCommandHistoryList(prev => [...prev, trimmed]);
     setHistoryPointer(-1);
@@ -538,9 +538,9 @@ export default function InteractiveWorkbench({ selectedProject, onSelectProject 
 
       if (matchedKey && RAG_RESPONSES[matchedKey]) {
         setRagHistory(prev => [
-          ...prev, 
-          { 
-            sender: "bot", 
+          ...prev,
+          {
+            sender: "bot",
             text: RAG_RESPONSES[matchedKey].answer,
             details: RAG_RESPONSES[matchedKey]
           }
@@ -571,11 +571,11 @@ export default function InteractiveWorkbench({ selectedProject, onSelectProject 
       if (ball.id === ballId) {
         const nextState = ball.predicted === "OK" ? "Void" : ball.predicted === "Void" ? "Bridge" : "OK";
         const confidence = nextState === "OK" ? 0.98 : nextState === "Void" ? 0.81 : 0.91;
-        return { 
-          ...ball, 
-          predicted: nextState, 
+        return {
+          ...ball,
+          predicted: nextState,
           valConfidence: confidence,
-          userVerified: true 
+          userVerified: true
         };
       }
       return ball;
@@ -590,7 +590,7 @@ export default function InteractiveWorkbench({ selectedProject, onSelectProject 
       // Toggle staff biometric state
       const updatedStatus = selectedStaff.status === "In" ? "Out" : "In";
       const currentTime = new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
-      
+
       // Update employee registry state
       setDtrStaff(prev => prev.map(staff => {
         if (staff.id === selectedStaff.id) {
@@ -693,7 +693,7 @@ export default function InteractiveWorkbench({ selectedProject, onSelectProject 
 
   return (
     <section id="interactive-workbench" className="py-16 px-4 md:px-8 max-w-7xl mx-auto border-b border-zinc-200 dark:border-[#0f1929]">
-      
+
       {/* HUD Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-8">
         <div>
@@ -704,7 +704,7 @@ export default function InteractiveWorkbench({ selectedProject, onSelectProject 
             Interactive Automation Console
           </h2>
           <p className="text-zinc-750 dark:text-zinc-300 mt-2 text-sm max-w-2xl font-medium">
-            Test and diagnose Danilo&apos;s edge hardware vision products, machine models, and databases. Use standard console commands below or click suggestions to test live systems in the digital controller.
+            Test and diagnose my edge hardware vision products, machine models, and databases. Use standard console commands below or click suggestions to test live systems in the digital controller.
           </p>
         </div>
 
@@ -716,11 +716,10 @@ export default function InteractiveWorkbench({ selectedProject, onSelectProject 
               <button
                 key={themeKey}
                 onClick={() => setTheme(themeKey)}
-                className={`px-2 py-0.5 rounded transition-all cursor-pointer font-bold ${
-                  theme === themeKey 
-                    ? "bg-sky-500 text-white dark:bg-zinc-800 dark:text-white" 
-                    : "text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-300"
-                }`}
+                className={`px-2 py-0.5 rounded transition-all cursor-pointer font-bold ${theme === themeKey
+                  ? "bg-sky-500 text-white dark:bg-zinc-800 dark:text-white"
+                  : "text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-300"
+                  }`}
               >
                 {themeKey}
               </button>
@@ -731,10 +730,10 @@ export default function InteractiveWorkbench({ selectedProject, onSelectProject 
 
       {/* Main Terminal Grid Structure */}
       <div className={`w-full ${config.bgBgOnDark} rounded-2xl border ${config.borderAccent} shadow-2xl transition-all overflow-hidden flex flex-col md:flex-row h-auto min-h-[580px] md:h-[620px]`}>
-        
+
         {/* LEFT COLUMN: PRIMARY INTERACTIVE TERMINAL STREAM */}
         <div className="flex-1 flex flex-col border-b md:border-b-0 md:border-r border-zinc-805/40 border-zinc-800/50">
-          
+
           {/* Terminal Window Header */}
           <div className={`px-4 py-3 ${config.terminalHeader} flex justify-between items-center select-none`}>
             <div className="flex items-center gap-2">
@@ -744,12 +743,12 @@ export default function InteractiveWorkbench({ selectedProject, onSelectProject 
                 <span className="w-3 h-3 rounded-full bg-emerald-500"></span>
               </div>
               <span className={`text-[11px] font-mono font-bold ${config.textAccent}`}>
-                danilo@embedded-jetson-orinnx:~
+                danilo@ubuntu:~
               </span>
             </div>
-            
+
             {activeSimulation && (
-              <button 
+              <button
                 onClick={() => {
                   setActiveSimulation(null);
                   setTerminalHistory(prev => [
@@ -767,7 +766,7 @@ export default function InteractiveWorkbench({ selectedProject, onSelectProject 
 
           {/* Terminal Content Logger Stream */}
           <div ref={terminalContainerRef} className="flex-1 p-4 overflow-y-auto custom-scrollbar space-y-2.5 font-mono text-[11px] md:text-xs">
-            
+
             {/* Prints command output array */}
             {terminalHistory.map((item) => (
               <div key={item.id} className="leading-relaxed">
@@ -816,10 +815,10 @@ export default function InteractiveWorkbench({ selectedProject, onSelectProject 
           {/* Interactive Shell Command Input Prompt Bar */}
           <div className="p-3 bg-zinc-905 border-t border-zinc-805/40 border-zinc-800 bg-black/40 flex items-center gap-2">
             <span className={`font-mono text-xs font-bold leading-none ${config.textAccent}`}>
-              danilo@embedded-jetson:~$
+              danilo@ubuntu:~$
             </span>
-            <input 
-              type="text" 
+            <input
+              type="text"
               value={terminalInput}
               onChange={(e) => setTerminalInput(e.target.value)}
               onKeyDown={handleInputKeyDown}
@@ -828,7 +827,7 @@ export default function InteractiveWorkbench({ selectedProject, onSelectProject 
               spellCheck={false}
               autoFocus
             />
-            <button 
+            <button
               onClick={() => executeCommand(terminalInput)}
               className={`p-1.5 rounded-lg border flex items-center justify-center cursor-pointer transition-colors ${config.textAccent} border-zinc-800 hover:bg-zinc-800/50`}
             >
@@ -839,7 +838,7 @@ export default function InteractiveWorkbench({ selectedProject, onSelectProject 
 
         {/* RIGHT COLUMN: INTERACTIVE VISUAL DISPLAY HUD */}
         <div className="w-full md:w-[420px] bg-slate-950/90 text-white flex flex-col font-mono text-xs overflow-y-auto custom-scrollbar">
-          
+
           {/* HUD Panel Title Row */}
           <div className="px-4 py-3 bg-[#0c121a] border-b border-zinc-800/80 flex justify-between items-center text-zinc-400">
             <span className="flex items-center gap-1.5 font-bold uppercase text-[10px] tracking-widest text-zinc-400">
@@ -849,7 +848,7 @@ export default function InteractiveWorkbench({ selectedProject, onSelectProject 
           </div>
 
           <div className="p-5 flex-1 flex flex-col justify-center items-center">
-            
+
             {/* STANDBY DEFAULT CLI PANEL */}
             {!activeSimulation && (
               <div className="text-center p-6 space-y-4 max-w-sm">
@@ -862,7 +861,7 @@ export default function InteractiveWorkbench({ selectedProject, onSelectProject 
                     Type or click any simulator command (e.g. <strong onClick={() => executeCommand("aoi")} className={`cursor-pointer underline ${config.textAccent}`}>aoi</strong>, <strong onClick={() => executeCommand("rag")} className={`cursor-pointer underline ${config.textAccent}`}>rag</strong>, or <strong onClick={() => executeCommand("dtr")} className={`cursor-pointer underline ${config.textAccent}`}>dtr</strong>) to load that physical simulation twin controller block in this viewport.
                   </p>
                 </div>
-                
+
                 {/* Visual spec badge cards */}
                 <div className="pt-2 text-left space-y-1.5 text-[9px] text-zinc-400 bg-zinc-900/40 p-3 rounded-lg border border-zinc-800/60 leading-normal">
                   <div className="flex justify-between border-b border-zinc-800/40 pb-1">
@@ -894,11 +893,10 @@ export default function InteractiveWorkbench({ selectedProject, onSelectProject 
                 {/* Sub chat list area */}
                 <div className="bg-zinc-900 rounded-lg p-3 h-56 overflow-y-auto custom-scrollbar space-y-3 border border-zinc-850">
                   {ragHistory.map((hMsg, idx) => (
-                    <div key={idx} className={`p-2 rounded max-w-[90%] leading-relaxed text-[10px] ${
-                      hMsg.sender === "user" 
-                        ? "bg-sky-600/10 border border-sky-500/20 text-sky-300 ml-auto" 
-                        : "bg-zinc-950/80 text-zinc-300 border border-zinc-850"
-                    }`}>
+                    <div key={idx} className={`p-2 rounded max-w-[90%] leading-relaxed text-[10px] ${hMsg.sender === "user"
+                      ? "bg-sky-600/10 border border-sky-500/20 text-sky-300 ml-auto"
+                      : "bg-zinc-950/80 text-zinc-300 border border-zinc-850"
+                      }`}>
                       <p className="font-sans leading-relaxed">{hMsg.text}</p>
                       {hMsg.details && (
                         <div className="mt-1.5 p-1.5 bg-black rounded border border-zinc-800 text-[8px] text-zinc-500 space-y-0.5 font-mono">
@@ -965,19 +963,17 @@ export default function InteractiveWorkbench({ selectedProject, onSelectProject 
                       className="aspect-square relative flex items-center justify-center bg-zinc-950 hover:bg-zinc-900 border border-zinc-800 rounded-full cursor-pointer select-none transition-all"
                       title="Click to toggle defect class"
                     >
-                      <div className={`w-8 h-8 rounded-full ${
-                        b.predicted === "OK" ? "bg-emerald-500" : 
-                        b.predicted === "Bridge" ? "bg-rose-500 animate-pulse" : 
-                        b.predicted === "Void" ? "bg-amber-500" : "bg-cyan-500"
-                      } text-[9px] text-zinc-900 flex items-center justify-center font-bold`}>
+                      <div className={`w-8 h-8 rounded-full ${b.predicted === "OK" ? "bg-emerald-500" :
+                        b.predicted === "Bridge" ? "bg-rose-500 animate-pulse" :
+                          b.predicted === "Void" ? "bg-amber-500" : "bg-cyan-500"
+                        } text-[9px] text-zinc-900 flex items-center justify-center font-bold`}>
                         #{b.id}
                       </div>
 
                       {/* Overlays */}
                       {b.predicted !== "OK" && (
-                        <div className={`absolute -inset-1 border border-dashed rounded-md ${
-                          b.predicted === "Bridge" ? "border-rose-500" : "border-amber-500"
-                        }`}>
+                        <div className={`absolute -inset-1 border border-dashed rounded-md ${b.predicted === "Bridge" ? "border-rose-500" : "border-amber-500"
+                          }`}>
                           <span className="absolute -top-3.5 -left-1 px-1 py-0.2 bg-black text-rose-400 font-black text-[7px]">
                             {b.predicted} ({(b.valConfidence * 100).toFixed(0)}%)
                           </span>
@@ -1041,7 +1037,7 @@ export default function InteractiveWorkbench({ selectedProject, onSelectProject 
                     {isDtrScanning && (
                       <div className="absolute inset-x-0 h-px bg-cyan-400 shadow-[0_0_10px_#22d3ee] top-1/2 animate-bounce"></div>
                     )}
-                    
+
                     {/* Render user icon avatar */}
                     <div className="bg-zinc-950 border border-zinc-800 p-2 text-center rounded-lg relative max-w-[140px]">
                       {selectedStaff.id === "EMP-001" ? (
@@ -1053,7 +1049,7 @@ export default function InteractiveWorkbench({ selectedProject, onSelectProject 
                       )}
                       <span className="text-[9px] font-bold text-white block truncate">{selectedStaff.name}</span>
                       <span className="text-[8px] text-zinc-500 block truncate">{selectedStaff.role}</span>
-                      
+
                       {/* Bounding vector pulse overlay */}
                       <div className="absolute -inset-1 border border-dashed border-emerald-500 rounded-lg animate-pulse pointer-events-none"></div>
                     </div>
@@ -1073,11 +1069,10 @@ export default function InteractiveWorkbench({ selectedProject, onSelectProject 
                       <button
                         key={staff.id}
                         onClick={() => setSelectedStaff(staff)}
-                        className={`p-1.5 text-left rounded border transition-colors text-[9px] cursor-pointer ${
-                          selectedStaff.id === staff.id 
-                            ? "bg-sky-950/40 border-sky-500 text-sky-400 font-bold" 
-                            : "bg-zinc-900 border-zinc-850 text-zinc-400"
-                        }`}
+                        className={`p-1.5 text-left rounded border transition-colors text-[9px] cursor-pointer ${selectedStaff.id === staff.id
+                          ? "bg-sky-950/40 border-sky-500 text-sky-400 font-bold"
+                          : "bg-zinc-900 border-zinc-850 text-zinc-400"
+                          }`}
                       >
                         {staff.faceImg} {staff.name} ({staff.status})
                       </button>
@@ -1116,27 +1111,24 @@ export default function InteractiveWorkbench({ selectedProject, onSelectProject 
                 <div className="grid grid-cols-2 gap-3.5">
                   <div className="space-y-1.5">
                     <span className="text-[9px] text-zinc-400 block font-bold uppercase">Specimen Sample Select:</span>
-                    <button 
+                    <button
                       onClick={() => { setRiceLeafImage("healthy"); setLeafInferenceResult(null); }}
-                      className={`w-full py-1.5 px-2 rounded text-left border text-[9px] cursor-pointer ${
-                        riceLeafImage === "healthy" ? "bg-teal-950/40 border-teal-500 text-teal-400" : "bg-zinc-900 border-zinc-850 text-zinc-400"
-                      }`}
+                      className={`w-full py-1.5 px-2 rounded text-left border text-[9px] cursor-pointer ${riceLeafImage === "healthy" ? "bg-teal-950/40 border-teal-500 text-teal-400" : "bg-zinc-900 border-zinc-850 text-zinc-400"
+                        }`}
                     >
                       🌿 Healthy Specimen Leaf
                     </button>
-                    <button 
+                    <button
                       onClick={() => { setRiceLeafImage("blight"); setLeafInferenceResult(null); }}
-                      className={`w-full py-1.5 px-2 rounded text-left border text-[9px] cursor-pointer ${
-                        riceLeafImage === "blight" ? "bg-amber-95/40 border-amber-500 text-amber-500" : "bg-zinc-900 border-zinc-850 text-zinc-400"
-                      }`}
+                      className={`w-full py-1.5 px-2 rounded text-left border text-[9px] cursor-pointer ${riceLeafImage === "blight" ? "bg-amber-95/40 border-amber-500 text-amber-500" : "bg-zinc-900 border-zinc-850 text-zinc-400"
+                        }`}
                     >
                       🥀 Leaf Blight Sample pathology
                     </button>
-                    <button 
+                    <button
                       onClick={() => { setRiceLeafImage("spot"); setLeafInferenceResult(null); }}
-                      className={`w-full py-1.5 px-2 rounded text-left border text-[9px] cursor-pointer ${
-                        riceLeafImage === "spot" ? "bg-yellow-950/40 border-yellow-600 text-yellow-600" : "bg-zinc-900 border-zinc-850 text-zinc-400"
-                      }`}
+                      className={`w-full py-1.5 px-2 rounded text-left border text-[9px] cursor-pointer ${riceLeafImage === "spot" ? "bg-yellow-950/40 border-yellow-600 text-yellow-600" : "bg-zinc-900 border-zinc-850 text-zinc-400"
+                        }`}
                     >
                       🍂 Brown Spot fungal defect
                     </button>
@@ -1212,11 +1204,10 @@ export default function InteractiveWorkbench({ selectedProject, onSelectProject 
                           setCustomSQL(tmpl.sql);
                           setSqlResultsUser(tmpl);
                         }}
-                        className={`text-left p-1 rounded border transition-colors text-[8px] truncate font-mono cursor-pointer ${
-                          activeSqlTemplate === tmpl.id 
-                            ? "bg-amber-950/40 border-amber-500 text-amber-400 font-bold" 
-                            : "bg-zinc-950 border-zinc-850 text-zinc-400"
-                        }`}
+                        className={`text-left p-1 rounded border transition-colors text-[8px] truncate font-mono cursor-pointer ${activeSqlTemplate === tmpl.id
+                          ? "bg-amber-950/40 border-amber-500 text-amber-400 font-bold"
+                          : "bg-zinc-950 border-zinc-850 text-zinc-400"
+                          }`}
                       >
                         {tmpl.title}
                       </button>
@@ -1296,15 +1287,15 @@ export default function InteractiveWorkbench({ selectedProject, onSelectProject 
                           <stop offset="100%" stopColor="#22d3ee" stopOpacity="0.0" />
                         </linearGradient>
                       </defs>
-                      <path 
-                        d="M 5,30 Q 20,10 40,25 T 80,12" 
-                        fill="none" 
-                        stroke="#22d3ee" 
-                        strokeWidth="1.5" 
+                      <path
+                        d="M 5,30 Q 20,10 40,25 T 80,12"
+                        fill="none"
+                        stroke="#22d3ee"
+                        strokeWidth="1.5"
                         strokeLinecap="round"
                       />
-                      <path 
-                        d="M 5,30 Q 20,10 40,25 T 80,12 L 80,40 L 5,40 Z" 
+                      <path
+                        d="M 5,30 Q 20,10 40,25 T 80,12 L 80,40 L 5,40 Z"
                         fill="url(#glow-grad)"
                       />
                       {/* Dots overlay */}
