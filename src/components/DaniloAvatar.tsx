@@ -10,10 +10,10 @@ export default function DaniloAvatar({ className = "w-20 h-20" }: DaniloAvatarPr
   // We check for several potential user filenames as fallbacks
   const [retryCount, setRetryCount] = useState(0);
   const possiblePaths = [
+    "/assets/danilo.png",
     "/assets/danilo.jpg",
     "/assets/danilo_profile.png",
     "/assets/danilo_profile.jpg",
-    "/assets/danilo.png",
     "/danilo_profile.png",
     "/danilo.jpg"
   ];
